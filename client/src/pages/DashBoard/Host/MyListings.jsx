@@ -3,8 +3,8 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import useAuth from '../../../hooks/useAuth'
 import LoadingSpinner from '../../../components/Shared/LoadingSpinner'
-import RoomDataRow from '../../../components/DashBoard/Sidebar/TablesRows/RoomDataRow' 
-import { toast} from 'react-hot-toast' ;
+import RoomDataRow from '../../../components/DashBoard/Sidebar/TablesRows/RoomDataRow'
+import { toast } from 'react-hot-toast';
 
 const MyListings = () => {
     const { user } = useAuth();
@@ -14,7 +14,7 @@ const MyListings = () => {
     const { data: rooms = [], isLoading, refetch } = useQuery({
         queryKey: ['rooms'],
         queryFn: async () => {
-            const { data } = await axiosSecure(`/my-listings/${user.email}`)
+            const { data } = await axiosSecure(`/my-listings/${user?.email}`)
             return data;
         }
     })
@@ -95,6 +95,7 @@ const MyListings = () => {
                                         >
                                             Delete
                                         </th>
+
                                         <th
                                             scope='col'
                                             className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
@@ -108,7 +109,9 @@ const MyListings = () => {
                                     {rooms.map(room =>
                                         <RoomDataRow key={room._id}
                                             room={room}
-                                            handledelete={handledelete} />
+                                            handledelete={handledelete}
+                                            refetch={refetch}
+                                             />
                                     )}
                                 </tbody>
                             </table>

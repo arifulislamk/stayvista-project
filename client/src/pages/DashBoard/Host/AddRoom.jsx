@@ -55,7 +55,7 @@ const AddRoom = () => {
         const to = dates.endDate;
         const from = dates.startDate;
         const price = form.price.value;
-        const quests = form.total_guest.value;
+        const guests = form.total_guest.value;
         const bathrooms = form.bathrooms.value;
         const bedrooms = form.bedrooms.value;
         const description = form.description.value;
@@ -77,7 +77,7 @@ const AddRoom = () => {
                 to,
                 from,
                 price,
-                quests,
+                guests,
                 bedrooms,
                 bathrooms,
                 description,
