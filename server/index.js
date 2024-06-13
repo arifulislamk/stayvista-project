@@ -12,7 +12,11 @@ const port = process.env.PORT || 8000
 
 // middleware
 const corsOptions = {
-  origin: ['http://localhost:5173', 'http://localhost:5174'],
+  origin: ['http://localhost:5173', 
+    'http://localhost:5174',
+    'https://stayvista-3d83c.firebaseapp.com',
+    'https://stayvista-3d83c.web.app'
+  ],
   credentials: true,
   optionSuccessStatus: 200,
 }
